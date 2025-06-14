@@ -1,6 +1,7 @@
 package com.eazybytes.accounts.controller;
 
 import com.eazybytes.accounts.constants.AccountsConstants;
+import com.eazybytes.accounts.dto.response.AccountsContactInfoDto;
 import com.eazybytes.accounts.dto.response.CustomerDto;
 import com.eazybytes.accounts.dto.response.ErrorResponseDto;
 import com.eazybytes.accounts.dto.response.ResponseDto;
@@ -30,6 +31,7 @@ import org.springframework.web.bind.annotation.*;
 public class AccountsController {
 
     private  IAccountService accountService;
+    private AccountsContactInfoDto accountsContactInfoDto;
 
     @Operation(
             summary = "Create Customer REST API ",
@@ -102,6 +104,14 @@ public class AccountsController {
                     .status(HttpStatus.BAD_REQUEST)
                     .body(new ResponseDto(AccountsConstants.STATUS_417,AccountsConstants.MESSAGE_417_DELETE));
         }
+    }
+
+    @GetMapping("contact-info")
+    public ResponseEntity<AccountsContactInfoDto> getAccountContact(){
+
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .body(accountsContactInfoDto);
     }
 
 }

@@ -1,6 +1,5 @@
 package com.eazybytes.accounts.entity;
 
-import com.eazybytes.accounts.audit.AuditAwareImpl;
 import jakarta.persistence.Column;
 import jakarta.persistence.EntityListeners;
 import jakarta.persistence.MappedSuperclass;

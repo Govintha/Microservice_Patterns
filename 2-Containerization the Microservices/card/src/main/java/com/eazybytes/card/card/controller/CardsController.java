@@ -1,6 +1,7 @@
 package com.eazybytes.card.card.controller;
 
 import com.eazybytes.card.card.constant.CardsConstants;
+import com.eazybytes.card.card.dto.CardsContactInfoDto;
 import com.eazybytes.card.card.dto.CardsDto;
 import com.eazybytes.card.card.dto.ResponseDto;
 import com.eazybytes.card.card.service.ICardsService;
@@ -20,6 +21,7 @@ import org.springframework.web.bind.annotation.*;
 public class CardsController {
 
     private final ICardsService cardsService;
+    private final CardsContactInfoDto cardsContactInfoDto;
 
     @PostMapping("/create")
     public ResponseEntity<ResponseDto> createCard(@Valid @RequestParam
@@ -68,5 +70,12 @@ public class CardsController {
             return ResponseEntity.status(HttpStatus.EXPECTATION_FAILED)
                     .body(new ResponseDto(CardsConstants.STATUS_417,CardsConstants.MESSAGE_417_DELETE));
         }
+    }
+
+    @GetMapping("/contact-info")
+    public ResponseEntity<CardsContactInfoDto> getContactInfo() {
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .body(cardsContactInfoDto);
     }
 }
