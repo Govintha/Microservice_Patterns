@@ -74,6 +74,10 @@
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-config</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-bus-amqp</artifactId>
+		</dependency>
 	</dependencies>
 
 
@@ -110,7 +114,7 @@
 				<version>3.4.2</version>
 				<configuration>
 					<to>
-						<image>govinth07/${project.artifactId}:s4</image>
+						<image>govinth07/${project.artifactId}:s6</image>
 					</to>
 				</configuration>
 			</plugin>
